@@ -8,6 +8,7 @@ import s4eLogo from "@/assets/logos/s4e.png";
 
 export const site = {
   name: "Gean Mapesos",
+  url: "https://geanmapesos.dev",
   description:
     "Software Engineering student at FEU Institute of Technology and Account Maintenance Specialist at Solutions4Ecommerce.",
   email: "mapesosgean@gmail.com",

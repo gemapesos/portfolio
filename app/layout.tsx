@@ -9,12 +9,17 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
   title: site.name,
   description: site.description,
-  authors: [{ name: site.name, url: site.github }],
+  authors: [{ name: site.name, url: site.url }],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: site.name,
     description: site.description,
+    url: "/",
     siteName: site.name,
     type: "website",
   },

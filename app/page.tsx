@@ -117,16 +117,20 @@ export default function Home() {
                 meta={cert.issued}
                 image={cert.image}
               >
-                {cert.credentialId ? (
+                {cert.credentialId || cert.expires || cert.verifyUrl ? (
                   <dl className="grid grid-cols-[auto_1fr] gap-x-4">
-                    <dt>Credential ID</dt>
-                    <dd className="flex items-center gap-1 text-foreground">
-                      {cert.credentialId}
-                      <CopyButton
-                        value={cert.credentialId}
-                        label="Copy credential ID"
-                      />
-                    </dd>
+                    {cert.credentialId ? (
+                      <>
+                        <dt>Credential ID</dt>
+                        <dd className="flex items-center gap-1 text-foreground">
+                          {cert.credentialId}
+                          <CopyButton
+                            value={cert.credentialId}
+                            label="Copy credential ID"
+                          />
+                        </dd>
+                      </>
+                    ) : null}
                     {cert.expires ? (
                       <>
                         <dt>Expires</dt>

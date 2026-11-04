@@ -8,9 +8,11 @@ export const grid =
 // column, runs to the edge of the screen and scrolls when it doesn't fit.
 // --bleed is the gap between the content column and the screen edge, measured
 // in cqw (the section's width) so a visible scrollbar isn't counted. The row's
-// own scrollbar is hidden; edge-fade shows which way there's more to see.
+// own scrollbar is hidden; the cropped item shows there's more to see. It only
+// snaps on phones: on wider screens the row overflows by less than a card, so
+// snapping would turn any scroll into a jump to the far end.
 export const row =
-  "-mx-(--bleed) flex snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain px-(--bleed) pb-1 scroll-px-(--bleed) [--bleed:calc((100cqw_-_min(100cqw_-_2.5rem,30rem))_/_2)] edge-fade [scrollbar-width:none] [&::-webkit-scrollbar]:hidden *:w-min *:shrink-0 *:snap-start lg:-ml-1 lg:gap-8 lg:pr-12 lg:pl-1 xl:pr-20 lg:scroll-pl-1";
+  "-mx-(--bleed) flex snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain px-(--bleed) pb-1 scroll-px-(--bleed) [--bleed:calc((100cqw_-_min(100cqw_-_2.5rem,30rem))_/_2)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden *:w-min *:shrink-0 *:snap-start sm:snap-none lg:-ml-1 lg:gap-8 lg:pr-12 lg:pl-1 xl:pr-20 lg:scroll-pl-1";
 
 // Staggers the entrance animation so the page assembles top to bottom.
 export function enter(step: number): CSSProperties {

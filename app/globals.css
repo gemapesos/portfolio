@@ -37,57 +37,6 @@
   }
 }
 
-@property --fade-start {
-  syntax: "<length>";
-  inherits: false;
-  initial-value: 0px;
-}
-
-@property --fade-end {
-  syntax: "<length>";
-  inherits: false;
-  initial-value: 0px;
-}
-
-@keyframes edge-fade {
-  from {
-    --fade-start: 0px;
-    --fade-end: var(--fade-size);
-  }
-  15% {
-    --fade-start: var(--fade-size);
-  }
-  85% {
-    --fade-end: var(--fade-size);
-  }
-  to {
-    --fade-start: var(--fade-size);
-    --fade-end: 0px;
-  }
-}
-
-/* Fades a sideways scroller's edges, but only on a side with more to scroll to,
-   so nothing fades at either end or when everything fits. A mask rather than a
-   gradient overlay, so it needs no background color and follows the theme.
-   Without scroll-driven animations there's no fade: the cropped item still
-   shows there's more. */
-@utility edge-fade {
-  /* Narrow on phones, where only a sliver of the next item peeks in. */
-  --fade-size: clamp(1.5rem, 8cqw, 6rem);
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    #000 var(--fade-start),
-    #000 calc(100% - var(--fade-end)),
-    transparent
-  );
-
-  @supports (animation-timeline: scroll()) {
-    animation: edge-fade linear both;
-    animation-timeline: scroll(self inline);
-  }
-}
-
 @layer base {
   html {
     color-scheme: light dark;

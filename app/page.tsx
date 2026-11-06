@@ -172,24 +172,23 @@ export default function Home() {
         </Section>
 
         <Section id="connect" title="Connect" step={6}>
-          <dl className="space-y-4">
+          <ul className="space-y-3">
             {links.map((link) => {
               const Icon = linkIcons[link.icon];
               return (
-                <div key={link.label}>
-                  <dt className="flex items-center gap-1.5 text-muted">
-                    <Icon className="size-3.5" />
-                    {link.label}
-                  </dt>
-                  <dd>
-                    <TextLink href={link.href} className="hover:text-muted">
-                      {link.handle}
-                    </TextLink>
-                  </dd>
-                </div>
+                <li key={link.label} className="flex items-start gap-2">
+                  <Icon
+                    className="mt-[0.3em] size-4 shrink-0 text-muted"
+                    aria-hidden="true"
+                  />
+                  <span className="sr-only">{link.label}: </span>
+                  <TextLink href={link.href} className="hover:text-muted">
+                    {link.handle}
+                  </TextLink>
+                </li>
               );
             })}
-          </dl>
+          </ul>
         </Section>
 
         <script

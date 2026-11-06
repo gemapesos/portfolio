@@ -3,7 +3,7 @@
 import type { StaticImageData } from "next/image";
 import ccnaCertificate from "@/assets/certificates/ccna-introduction-to-networks.webp";
 import pmiCertificate from "@/assets/certificates/pmi-project-management-ready.webp";
-import pythonBadge from "@/assets/certificates/it-specialist-python.webp";
+import pythonCertificate from "@/assets/certificates/it-specialist-python.webp";
 import feuTechLogo from "@/assets/logos/feu-tech.png";
 import s4eLogo from "@/assets/logos/s4e.png";
 
@@ -93,6 +93,15 @@ type Certification = {
 
 export const certifications: Certification[] = [
   {
+    name: "IT Specialist - Python",
+    issuer: "Certiport, a Pearson VUE business",
+    issued: "Jul 2025",
+    expires: "Jul 2030",
+    credentialId: "JdCD-4wb2",
+    verifyUrl: "https://verify.certiport.com",
+    image: pythonCertificate,
+  },
+  {
     name: "PMI Project Management Ready®",
     issuer: "Project Management Institute",
     issued: "Mar 2026",
@@ -107,15 +116,6 @@ export const certifications: Certification[] = [
     issued: "Aug 2025",
     note: "Completed through FEU Institute of Technology",
     image: ccnaCertificate,
-  },
-  {
-    name: "IT Specialist - Python",
-    issuer: "Certiport, a Pearson VUE business",
-    issued: "Jul 2025",
-    expires: "Jul 2030",
-    verifyUrl:
-      "https://www.credly.com/badges/b814a519-c63e-4c9f-a1a4-0f43908049a7",
-    image: pythonBadge,
   },
 ];
 

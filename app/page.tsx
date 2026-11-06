@@ -1,6 +1,11 @@
 import { CopyButton } from "@/components/copy-button";
 import { Entry } from "@/components/entry";
-import { ArrowRightIcon } from "@/components/icons";
+import {
+  ArrowRightIcon,
+  GithubIcon,
+  LinkedinIcon,
+  MailIcon,
+} from "@/components/icons";
 import { Section, enter, grid, row } from "@/components/section";
 import { TextLink } from "@/components/text-link";
 import {
@@ -12,6 +17,12 @@ import {
   projects,
   site,
 } from "./data";
+
+const linkIcons = {
+  github: GithubIcon,
+  linkedin: LinkedinIcon,
+  mail: MailIcon,
+};
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -160,28 +171,24 @@ export default function Home() {
           </ul>
         </Section>
 
-        <Section
-          id="connect"
-          title="Connect"
-          step={6}
-          aside={
-            <dl className="mt-4 lg:mt-0">
-              <dt className="text-muted">Typeface</dt>
-              <dd>Inter</dd>
-            </dl>
-          }
-        >
+        <Section id="connect" title="Connect" step={6}>
           <dl className="space-y-4">
-            {links.map((link) => (
-              <div key={link.label}>
-                <dt className="text-muted">{link.label}</dt>
-                <dd>
-                  <TextLink href={link.href} className="hover:text-muted">
-                    {link.handle}
-                  </TextLink>
-                </dd>
-              </div>
-            ))}
+            {links.map((link) => {
+              const Icon = linkIcons[link.icon];
+              return (
+                <div key={link.label}>
+                  <dt className="flex items-center gap-1.5 text-muted">
+                    <Icon className="size-3.5" />
+                    {link.label}
+                  </dt>
+                  <dd>
+                    <TextLink href={link.href} className="hover:text-muted">
+                      {link.handle}
+                    </TextLink>
+                  </dd>
+                </div>
+              );
+            })}
           </dl>
         </Section>
 

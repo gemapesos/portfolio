@@ -119,8 +119,25 @@ export const certifications: Certification[] = [
   },
 ];
 
-export const links = [
-  { label: "GitHub", handle: "@gemapesos", href: site.github },
-  { label: "LinkedIn", handle: "Gean Mapesos", href: site.linkedin },
-  { label: "Email", handle: site.email, href: `mailto:${site.email}` },
+type ContactLink = {
+  label: string;
+  handle: string;
+  href: string;
+  icon: "github" | "linkedin" | "mail";
+};
+
+export const links: ContactLink[] = [
+  { label: "GitHub", handle: "@gemapesos", href: site.github, icon: "github" },
+  {
+    label: "LinkedIn",
+    handle: "Gean Mapesos",
+    href: site.linkedin,
+    icon: "linkedin",
+  },
+  {
+    label: "Email",
+    handle: site.email,
+    href: `mailto:${site.email}`,
+    icon: "mail",
+  },
 ];

@@ -116,42 +116,44 @@ export default function Home() {
                 subtitle={cert.issuer}
                 meta={cert.issued}
                 image={cert.image}
+                details={
+                  cert.credentialId || cert.expires || cert.verifyUrl ? (
+                    <dl className="grid grid-cols-[auto_1fr] gap-x-4">
+                      {cert.credentialId ? (
+                        <>
+                          <dt>Credential ID</dt>
+                          <dd className="flex items-center gap-1 text-foreground">
+                            {cert.credentialId}
+                            <CopyButton
+                              value={cert.credentialId}
+                              label="Copy credential ID"
+                            />
+                          </dd>
+                        </>
+                      ) : null}
+                      {cert.expires ? (
+                        <>
+                          <dt>Expires</dt>
+                          <dd className="text-foreground">{cert.expires}</dd>
+                        </>
+                      ) : null}
+                      {cert.verifyUrl ? (
+                        <>
+                          <dt>Verify at</dt>
+                          <dd>
+                            <TextLink
+                              href={cert.verifyUrl}
+                              className="text-foreground hover:text-muted"
+                            >
+                              {new URL(cert.verifyUrl).hostname}
+                            </TextLink>
+                          </dd>
+                        </>
+                      ) : null}
+                    </dl>
+                  ) : undefined
+                }
               >
-                {cert.credentialId || cert.expires || cert.verifyUrl ? (
-                  <dl className="grid grid-cols-[auto_1fr] gap-x-4">
-                    {cert.credentialId ? (
-                      <>
-                        <dt>Credential ID</dt>
-                        <dd className="flex items-center gap-1 text-foreground">
-                          {cert.credentialId}
-                          <CopyButton
-                            value={cert.credentialId}
-                            label="Copy credential ID"
-                          />
-                        </dd>
-                      </>
-                    ) : null}
-                    {cert.expires ? (
-                      <>
-                        <dt>Expires</dt>
-                        <dd className="text-foreground">{cert.expires}</dd>
-                      </>
-                    ) : null}
-                    {cert.verifyUrl ? (
-                      <>
-                        <dt>Verify at</dt>
-                        <dd>
-                          <TextLink
-                            href={cert.verifyUrl}
-                            className="text-foreground hover:text-muted"
-                          >
-                            {new URL(cert.verifyUrl).hostname}
-                          </TextLink>
-                        </dd>
-                      </>
-                    ) : null}
-                  </dl>
-                ) : null}
                 {cert.note}
               </Entry>
             ))}

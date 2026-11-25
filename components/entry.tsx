@@ -39,12 +39,12 @@ export function Entry({
         {logo ? (
           // Decorative: the title beside it already names the organization.
           // Seated on a subtle light surface so colorful marks stay legible in dark mode.
-          <div className="mt-0.5 grid size-7 shrink-0 place-items-center rounded-md bg-white p-1 ring-1 ring-border">
+          <div className="mt-0.5 flex size-7 shrink-0 items-center justify-center overflow-hidden rounded-md bg-white p-1 ring-1 ring-border">
             <Image
               src={logo}
               alt=""
               sizes="20px"
-              className="size-full object-contain"
+              className="h-full w-full max-h-full max-w-full object-contain"
             />
           </div>
         ) : null}

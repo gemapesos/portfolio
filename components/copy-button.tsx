@@ -1,11 +1,15 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CheckIcon, CopyIcon } from "./icons";
 
 export function CopyButton({ value, label }: { value: string; label: string }) {
   const [copied, setCopied] = useState(false);
   const reset = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+
+  useEffect(() => {
+    return () => clearTimeout(reset.current);
+  }, []);
 
   async function copy() {
     try {
@@ -25,7 +29,8 @@ export function CopyButton({ value, label }: { value: string; label: string }) {
         type="button"
         onClick={copy}
         aria-label={label}
-        className="inline-grid size-5 cursor-pointer place-items-center rounded-xs text-muted transition-colors hover:text-foreground"
+        title={copied ? "Copied" : label}
+        className="-my-1 inline-grid size-7 cursor-pointer place-items-center rounded-xs text-muted transition-colors hover:text-foreground"
       >
         {copied ? (
           <CheckIcon className="size-3" />

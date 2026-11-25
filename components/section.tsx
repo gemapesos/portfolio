@@ -8,15 +8,15 @@ export const grid =
 // column, runs to the edge of the screen and scrolls when it doesn't fit.
 // --bleed is the gap between the content column and the screen edge, measured
 // in cqw (the section's width) so a visible scrollbar isn't counted. The row's
-// own scrollbar is hidden; the cropped item shows there's more to see. It only
-// snaps on phones: on wider screens the row overflows by less than a card, so
-// snapping would turn any scroll into a jump to the far end.
+// own scrollbar is hidden; ScrollRow adds desktop prev/next buttons when the
+// row overflows. It only snaps on phones: on wider screens the row overflows
+// by less than a card, so snapping would turn any scroll into a jump to the far end.
 export const row =
-  "-mx-(--bleed) flex snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain px-(--bleed) pb-1 scroll-px-(--bleed) [--bleed:calc((100cqw_-_min(100cqw_-_2.5rem,30rem))_/_2)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden *:w-min *:shrink-0 *:snap-start sm:snap-none lg:-ml-1 lg:gap-8 lg:pr-12 lg:pl-1 xl:pr-20 lg:scroll-pl-1";
+  "-mx-(--bleed) flex snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain px-(--bleed) pb-1 scroll-px-(--bleed) [--bleed:calc((100cqw_-_min(100cqw_-_2.5rem,30rem))_/_2)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden *:w-min *:shrink-0 *:snap-start sm:snap-none lg:-ml-1 lg:gap-6 lg:pr-12 lg:pl-1 xl:pr-20 lg:scroll-pl-1";
 
 // Staggers the entrance animation so the page assembles top to bottom.
 export function enter(step: number): CSSProperties {
-  return { animationDelay: `${step * 80}ms` };
+  return { animationDelay: `${step * 45}ms` };
 }
 
 export function Section({
@@ -38,10 +38,12 @@ export function Section({
       className="@container overflow-x-clip border-t border-border"
     >
       <div
-        className={`${grid} animate-enter py-16 motion-reduce:animate-none lg:py-20`}
+        className={`${grid} animate-enter py-12 motion-reduce:animate-none lg:py-16`}
         style={enter(step)}
       >
-        <h2 id={id}>{title}</h2>
+        <h2 id={id} className="text-muted">
+          {title}
+        </h2>
         <div className="min-w-0">{children}</div>
         {aside ? <div className="lg:text-right">{aside}</div> : null}
       </div>

@@ -3,13 +3,20 @@ import type { ReactNode } from "react";
 import { ChevronDownIcon, CornerDownRightIcon } from "./icons";
 import { TextLink } from "./text-link";
 
+type EntryLink = {
+  label: string;
+  href: string;
+};
+
 export function Entry({
   title,
   href,
   subtitle,
   meta,
   logo,
-  image,
+  preview,
+  tags,
+  links,
   details,
   children,
 }: {
@@ -18,47 +25,32 @@ export function Entry({
   subtitle?: string;
   meta?: string;
   logo?: StaticImageData;
-  image?: StaticImageData;
+  preview?: ReactNode;
+  tags?: string[];
+  links?: EntryLink[];
   // Extra detail revealed by clicking the subtitle row. Needs a subtitle.
   details?: ReactNode;
   children?: ReactNode;
 }) {
   return (
     <li>
-      {image ? (
-        // The whole image, sized by height so a row of them lines up. Hidden
-        // from assistive tech and the tab order because the title link below
-        // goes to the same place.
-        <a
-          href={href}
-          target="_blank"
-          rel="noreferrer"
-          tabIndex={-1}
-          aria-hidden="true"
-          className="mb-5 block cursor-zoom-in"
-        >
-          <Image
-            src={image}
-            alt=""
-            sizes="(min-width: 1024px) 380px, 360px"
-            placeholder="blur"
-            className="h-60 w-auto max-w-none outline -outline-offset-1 outline-black/10 lg:h-64"
-          />
-        </a>
-      ) : null}
-      <div className="flex gap-2">
+      {preview}
+      <div className="flex gap-3">
         {logo ? (
           // Decorative: the title beside it already names the organization.
-          <Image
-            src={logo}
-            alt=""
-            sizes="16px"
-            className="h-[1lh] w-4 shrink-0 object-contain"
-          />
+          // Seated on a subtle light surface so colorful marks stay legible in dark mode.
+          <div className="mt-0.5 grid size-7 shrink-0 place-items-center rounded-md bg-white p-1 ring-1 ring-border">
+            <Image
+              src={logo}
+              alt=""
+              sizes="20px"
+              className="size-full object-contain"
+            />
+          </div>
         ) : null}
         <div className="min-w-0 flex-1">
           <div className="flex items-baseline justify-between gap-4">
-            <h3>
+            <h3 className="font-medium">
               {href ? (
                 <TextLink href={href} newTab className="hover:text-muted">
                   {title}
@@ -67,7 +59,9 @@ export function Entry({
                 title
               )}
             </h3>
-            {meta ? <span className="shrink-0 text-muted">{meta}</span> : null}
+            {meta ? (
+              <span className="shrink-0 text-muted tabular-nums">{meta}</span>
+            ) : null}
           </div>
           {subtitle && details ? (
             // The subtitle row is the toggle, so the chevron sits on a line of
@@ -99,6 +93,36 @@ export function Entry({
               className={subtitle ? "mt-2 pl-4 text-muted" : "mt-1 text-muted"}
             >
               {children}
+            </div>
+          ) : null}
+          {tags?.length || links?.length ? (
+            <div
+              className={`mt-2.5 flex flex-wrap items-center gap-x-3 gap-y-2 ${subtitle ? "pl-4" : ""}`}
+            >
+              {tags?.length ? (
+                <ul
+                  aria-label="Technologies"
+                  className="flex flex-wrap gap-1.5"
+                >
+                  {tags.map((tag) => (
+                    <li
+                      key={tag}
+                      className="rounded-xs border border-border px-1.5 py-0.5 text-xs text-muted"
+                    >
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+              {links?.map((link) => (
+                <TextLink
+                  key={link.href}
+                  href={link.href}
+                  className="text-xs text-muted hover:text-foreground"
+                >
+                  {link.label}
+                </TextLink>
+              ))}
             </div>
           ) : null}
         </div>

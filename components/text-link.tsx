@@ -2,7 +2,7 @@ import { ArrowUpRightIcon } from "./icons";
 
 export function TextLink({
   href,
-  newTab = href.startsWith("http"),
+  newTab = href.startsWith("http") || href.endsWith(".pdf"),
   className = "",
   children,
 }: {

@@ -9,26 +9,31 @@ import s4eLogo from "@/assets/logos/s4e.png";
 
 export const site = {
   name: "Gean Mapesos",
+  title: "Gean Mapesos — Software Engineering & Automation",
   url: "https://geanmapesos.dev",
+  repo: "https://github.com/gemapesos/portfolio",
+  resume: "/Gean-Mapesos-Resume.pdf",
+  location: "Manila, PH (UTC+8)",
   description:
-    "Software Engineering student at FEU Institute of Technology and Account Maintenance Specialist at Solutions4Ecommerce.",
+    "Software Engineering student at FEU Institute of Technology and Account Maintenance Specialist at Solutions4Ecommerce, building web and workflow automation tools.",
   email: "mapesosgean@gmail.com",
   github: "https://github.com/gemapesos",
   linkedin: "https://www.linkedin.com/in/gean-mapesos-45514228b/",
 };
 
 export const about = {
+  availability: "Open to internships",
   roles: [
     "Software Engineering Student at FEU Tech",
     "Account Maintenance Specialist at S4E",
   ],
   tagline: {
-    lead: "Aspiring automation builder",
-    rest: "who likes making useful tools that save people time.",
+    lead: "Automation builder",
+    rest: "making practical tools that save people time.",
   },
   bio: [
-    "I'm studying Computer Science with a specialization in Software Engineering at FEU Institute of Technology. Alongside my studies, I work part-time and remotely as an Account Maintenance Specialist at Solutions4Ecommerce (S4E), where I've built JavaScript web automation tools for my team.",
-    "Right now I'm learning Python, AI prompting, and workflow tools like n8n to become a better automation builder. I'm open to internship opportunities.",
+    "I'm studying Computer Science with a specialization in Software Engineering at FEU Institute of Technology. Alongside my coursework, I've worked part-time and remotely at Solutions4Ecommerce (S4E) since 2023, where I spot repetitive browser workflows and build internal JavaScript automation tools for the team.",
+    "I work across JavaScript, TypeScript, Python, and Next.js, and I'm currently expanding into workflow automation with n8n and AI-assisted tooling. I'm open to software engineering and automation internships (remote or hybrid).",
   ],
 };
 
@@ -36,7 +41,8 @@ type Job = {
   company: string;
   role: string;
   period: string;
-  summary?: string;
+  arrangement?: string;
+  highlights?: string[];
   logo?: StaticImageData;
 };
 
@@ -45,22 +51,53 @@ export const experience: Job[] = [
     company: "Solutions4Ecommerce",
     role: "Account Maintenance Specialist",
     period: "Mar 2023–Present",
-    summary: "Part-time · Remote",
+    arrangement: "Part-time · Remote",
+    highlights: [
+      "Maintain client ecommerce accounts remotely alongside full-time Computer Science coursework.",
+      "Identified repetitive browser workflows and built internal JavaScript web automation tools to streamline daily team tasks.",
+    ],
     logo: s4eLogo,
   },
 ];
 
 type Project = {
   title: string;
+  meta?: string;
+  href?: string;
+  repo?: string;
   description: string;
+  tags?: string[];
 };
 
 export const projects: Project[] = [
   {
-    title: "Web automation tools",
+    title: "Web Automation Tools",
+    meta: "Internal · S4E",
     description:
-      "Internal tools that automate everyday web tasks for my team at Solutions4Ecommerce. Built with JavaScript.",
+      "Internal browser scripts built to automate repetitive ecommerce account-maintenance workflows for my remote team at Solutions4Ecommerce, cutting down routine manual steps.",
+    tags: ["JavaScript", "Browser Automation"],
   },
+  {
+    title: "Personal Portfolio",
+    meta: "2026",
+    href: site.url,
+    repo: site.repo,
+    description:
+      "Responsive static site built around a single typed content module, with build-time Open Graph cards, structured JSON-LD metadata, and automatic light/dark theming.",
+    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+  },
+];
+
+type SkillGroup = {
+  label: string;
+  items: string[];
+};
+
+export const skills: SkillGroup[] = [
+  { label: "Languages", items: ["JavaScript", "TypeScript", "Python"] },
+  { label: "Web", items: ["React", "Next.js", "Tailwind CSS", "HTML/CSS"] },
+  { label: "Tools", items: ["Git", "GitHub", "Vercel"] },
+  { label: "Exploring", items: ["n8n", "AI workflows & prompting"] },
 ];
 
 type School = {
@@ -87,20 +124,12 @@ type Certification = {
   credentialId?: string;
   verifyUrl?: string;
   note?: string;
-  // The certificate itself, shown large and linked at full size.
+  // The certificate itself, shown as a preview with a lightbox on click.
   image?: StaticImageData;
 };
 
+// Ordered newest-first.
 export const certifications: Certification[] = [
-  {
-    name: "IT Specialist - Python",
-    issuer: "Certiport, a Pearson VUE business",
-    issued: "Jul 2025",
-    expires: "Jul 2030",
-    credentialId: "JdCD-4wb2",
-    verifyUrl: "https://verify.certiport.com",
-    image: pythonCertificate,
-  },
   {
     name: "PMI Project Management Ready®",
     issuer: "Project Management Institute",
@@ -117,13 +146,23 @@ export const certifications: Certification[] = [
     note: "Completed through FEU Institute of Technology",
     image: ccnaCertificate,
   },
+  {
+    name: "IT Specialist - Python",
+    issuer: "Certiport, a Pearson VUE business",
+    issued: "Jul 2025",
+    expires: "Jul 2030",
+    credentialId: "JdCD-4wb2",
+    verifyUrl: "https://verify.certiport.com",
+    image: pythonCertificate,
+  },
 ];
 
 type ContactLink = {
   label: string;
   handle: string;
   href: string;
-  icon: "github" | "linkedin" | "mail";
+  icon: "github" | "linkedin" | "mail" | "resume";
+  copyValue?: string;
 };
 
 export const links: ContactLink[] = [
@@ -139,5 +178,12 @@ export const links: ContactLink[] = [
     handle: site.email,
     href: `mailto:${site.email}`,
     icon: "mail",
+    copyValue: site.email,
+  },
+  {
+    label: "Resume",
+    handle: "Download PDF",
+    href: site.resume,
+    icon: "resume",
   },
 ];

@@ -71,6 +71,6 @@ Computer Science student and automation builder making practical tools that save
 
 #section("Skills")
 #text(weight: "medium")[Languages:] JavaScript, TypeScript, Python \
-#text(weight: "medium")[Web:] React, Next.js, Tailwind CSS, HTML/CSS \
+#text(weight: "medium")[Web:] HTML/CSS \
 #text(weight: "medium")[Tools:] Git, GitHub, Vercel \
 #text(weight: "medium")[Exploring:] n8n, AI workflows & prompting

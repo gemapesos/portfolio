@@ -22,7 +22,6 @@ export const site = {
 };
 
 export const about = {
-  availability: "Open to internships",
   roles: [
     "Software Engineering Student at FEU Tech",
     "Account Maintenance Specialist at S4E",
@@ -33,8 +32,13 @@ export const about = {
   },
   bio: [
     "I'm studying Computer Science with a specialization in Software Engineering at FEU Institute of Technology. Alongside my coursework, I've worked part-time and remotely at Solutions4Ecommerce (S4E) since 2023, where I spot repetitive browser workflows and build internal JavaScript automation tools for the team.",
-    "I work across JavaScript, TypeScript, Python, and Next.js, and I'm currently expanding into workflow automation with n8n and AI-assisted tooling. I'm open to software engineering and automation internships (remote or hybrid).",
   ],
+  closing: {
+    before:
+      "I work with JavaScript, TypeScript, and Python, and I'm currently expanding into workflow automation with n8n and AI-assisted tooling. I'm open to ",
+    highlight: "software engineering and automation",
+    after: " internships (remote or hybrid).",
+  },
 };
 
 type Job = {
@@ -95,7 +99,7 @@ type SkillGroup = {
 
 export const skills: SkillGroup[] = [
   { label: "Languages", items: ["JavaScript", "TypeScript", "Python"] },
-  { label: "Web", items: ["React", "Next.js", "Tailwind CSS", "HTML/CSS"] },
+  { label: "Web", items: ["HTML", "CSS"] },
   { label: "Tools", items: ["Git", "GitHub", "Vercel"] },
   { label: "Exploring", items: ["n8n", "AI workflows & prompting"] },
 ];

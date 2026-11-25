@@ -59,17 +59,6 @@ export default function Home() {
             </p>
           ))}
         </div>
-        {about.availability ? (
-          <div className="animate-enter motion-reduce:animate-none lg:col-start-3 lg:justify-self-end">
-            <p className="inline-flex items-center gap-2 text-xs text-muted">
-              <span
-                className="size-1.5 rounded-full bg-emerald-500"
-                aria-hidden="true"
-              />
-              {about.availability}
-            </p>
-          </div>
-        ) : null}
       </header>
 
       <main>
@@ -90,6 +79,13 @@ export default function Home() {
                 {paragraph}
               </p>
             ))}
+            <p className="mt-4 text-muted">
+              {about.closing.before}
+              <mark className="bg-foreground px-1 py-px text-background selection:bg-background selection:text-foreground">
+                {about.closing.highlight}
+              </mark>
+              {about.closing.after}
+            </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2">
               <TextLink
                 href={site.resume}

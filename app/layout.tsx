@@ -11,14 +11,14 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: site.name,
+  title: site.title,
   description: site.description,
   authors: [{ name: site.name, url: site.url }],
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: site.name,
+    title: site.title,
     description: site.description,
     url: "/",
     siteName: site.name,
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: site.name,
+    title: site.title,
     description: site.description,
   },
 };

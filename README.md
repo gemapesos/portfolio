@@ -23,10 +23,12 @@ Then open http://localhost:3000.
 | `app/data.ts` | All content |
 | `app/opengraph-image.tsx` | Social preview card (1200×630), generated at build time |
 | `app/icon.svg`, `app/apple-icon.tsx` | Favicon and home-screen icon |
-| `components/` | Section grid, list entry, links, icons, copy button |
+| `components/` | Section grid, list entry, lightbox preview, scroll controls, links, icons, copy button |
 | `assets/` | Inter TTFs for the social card ([SIL Open Font License](assets/OFL.txt)) |
 | `assets/logos/` | Company and school logos shown beside Experience and Education |
-| `assets/certificates/` | Certificate images, shown in a sideways row under Certifications |
+| `assets/certificates/` | Certificate images, shown in a sideways row with lightbox preview under Certifications |
+| `resume/` | Typst resume source (`resume.typ`) and compiled PDF |
+| `public/` | Static downloadable resume PDF (`Gean-Mapesos-Resume.pdf`) |
 
 ## Deploying
 

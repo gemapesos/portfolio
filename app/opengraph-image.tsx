@@ -28,7 +28,19 @@ export default function OpengraphImage() {
           fontFamily: "Inter",
         }}
       >
-        <div style={{ display: "flex", fontSize: 36 }}>&gt;_</div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            width: "100%",
+          }}
+        >
+          <div style={{ display: "flex", fontSize: 36 }}>&gt;_</div>
+          <div style={{ display: "flex", fontSize: 26, color: "#9f9fa9" }}>
+            {new URL(site.url).hostname}
+          </div>
+        </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div
             style={{

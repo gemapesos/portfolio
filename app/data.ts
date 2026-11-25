@@ -88,14 +88,6 @@ export const projects: Project[] = [
     description:
       "Responsive website and digital menu for a local rooftop café in Rizal, with tabbed food and drink menus, a photo gallery lightbox, live open-hours status, and Google Maps/Waze directions.",
   },
-  {
-    title: "Personal Portfolio",
-    meta: "2026",
-    href: site.url,
-    repo: site.repo,
-    description:
-      "Minimal static site deployed on Vercel, with all copy kept in one data file so content updates stay separate from layout.",
-  },
 ];
 
 type SkillGroup = {

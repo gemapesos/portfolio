@@ -35,7 +35,7 @@ export const about = {
   ],
   closing: {
     before:
-      "I work with JavaScript, TypeScript, and Python, and I'm currently expanding into workflow automation with n8n and AI-assisted tooling. I'm open to ",
+      "I work with JavaScript and Python, and I'm currently expanding into workflow automation with n8n and AI-assisted tooling. I'm open to ",
     highlight: "software engineering and automation",
     after: " internships (remote or hybrid).",
   },
@@ -87,8 +87,7 @@ export const projects: Project[] = [
     href: site.url,
     repo: site.repo,
     description:
-      "Responsive static site built around a single typed content module, with build-time Open Graph cards, structured JSON-LD metadata, and automatic light/dark theming.",
-    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+      "Minimal static site deployed on Vercel, with all copy kept in one data file so content updates stay separate from layout.",
   },
 ];
 
@@ -98,7 +97,7 @@ type SkillGroup = {
 };
 
 export const skills: SkillGroup[] = [
-  { label: "Languages", items: ["JavaScript", "TypeScript", "Python"] },
+  { label: "Languages", items: ["JavaScript", "Python"] },
   { label: "Web", items: ["HTML", "CSS"] },
   { label: "Tools", items: ["Git", "GitHub", "Vercel"] },
   { label: "Exploring", items: ["n8n", "AI workflows & prompting"] },

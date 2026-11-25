@@ -58,9 +58,7 @@ Computer Science student and automation builder making practical tools that save
   [Personal Portfolio | #text(weight: "regular")[#link("https://geanmapesos.dev")[geanmapesos.dev] · #link("https://github.com/gemapesos/portfolio")[github.com/gemapesos/portfolio]]],
   "2026",
 )
-- Built and deployed a responsive static site on Vercel with Next.js, React, TypeScript, and Tailwind CSS.
-- Structured all site content in one typed data module so entries update cleanly without modifying layout code.
-- Generated build-time Open Graph cards, semantic JSON-LD metadata, and automatic light/dark theming.
+- Designed, reviewed, and deployed a minimal static portfolio on Vercel, keeping all content separated into a single data file for easy updates.
 
 #section("Certifications")
 #entry("PMI Project Management Ready®", "Mar 2026", sub: "Project Management Institute | Credential ID: waSwy-H92N")
@@ -70,7 +68,7 @@ Computer Science student and automation builder making practical tools that save
 #entry("IT Specialist - Python", "Jul 2025", sub: "Certiport, a Pearson VUE business | Credential ID: JdCD-4wb2")
 
 #section("Skills")
-#text(weight: "medium")[Languages:] JavaScript, TypeScript, Python \
+#text(weight: "medium")[Languages:] JavaScript, Python \
 #text(weight: "medium")[Web:] HTML/CSS \
 #text(weight: "medium")[Tools:] Git, GitHub, Vercel \
 #text(weight: "medium")[Exploring:] n8n, AI workflows & prompting

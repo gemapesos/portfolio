@@ -82,6 +82,13 @@ export const projects: Project[] = [
     tags: ["JavaScript", "Browser Automation"],
   },
   {
+    title: "Hometown Brew",
+    meta: "Client · 2026",
+    href: "https://hometownbrew.cafe",
+    description:
+      "Responsive website and digital menu for a local rooftop café in Rizal, with tabbed food and drink menus, a photo gallery lightbox, live open-hours status, and Google Maps/Waze directions.",
+  },
+  {
     title: "Personal Portfolio",
     meta: "2026",
     href: site.url,

@@ -55,6 +55,12 @@ Computer Science student and automation builder making practical tools that save
 
 #section("Projects")
 #entry(
+  [Hometown Brew | #text(weight: "regular")[#link("https://hometownbrew.cafe")[hometownbrew.cafe]]],
+  "2026",
+)
+- Shipped a responsive website and digital menu for a local café client, with tabbed menus, a photo gallery lightbox, live open-hours status, and Google Maps/Waze directions.
+#v(0.3em)
+#entry(
   [Personal Portfolio | #text(weight: "regular")[#link("https://geanmapesos.dev")[geanmapesos.dev] · #link("https://github.com/gemapesos/portfolio")[github.com/gemapesos/portfolio]]],
   "2026",
 )

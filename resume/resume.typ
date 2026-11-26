@@ -2,18 +2,18 @@
 // typst compile --font-path assets resume/resume.typ resume/Gean-Mapesos-Resume.pdf
 
 #set document(title: "Gean Mapesos - Resume", author: "Gean Mapesos")
-#set page(paper: "a4", margin: (x: 2cm, y: 1.8cm))
+#set page(paper: "a4", margin: (x: 1.9cm, y: 1.3cm))
 #set text(font: "Inter", size: 10pt, fill: black, lang: "en")
-#set par(leading: 0.6em, justify: false)
-#set list(indent: 0.6em, body-indent: 0.6em, spacing: 0.6em)
+#set par(leading: 0.55em, justify: false)
+#set list(indent: 0.6em, body-indent: 0.6em, spacing: 0.5em)
 #show link: it => it
 
 #let section(title) = {
-  v(1.1em)
+  v(0.8em)
   text(weight: "medium", size: 10.5pt, upper(title))
   v(-0.55em)
   line(length: 100%, stroke: 0.5pt + black)
-  v(0.25em)
+  v(0.2em)
 }
 
 #let entry(left, right, sub: none) = {
@@ -30,12 +30,12 @@
 #align(center)[
   #text(size: 20pt, weight: "medium")[Gean Mapesos]
   #v(-0.2em)
-  #link("mailto:mapesosgean@gmail.com")[mapesosgean\@gmail.com] | #link("https://geanmapesos.dev")[geanmapesos.dev] | #link("https://github.com/gemapesos")[github.com/gemapesos] \
-  #link("https://www.linkedin.com/in/gean-mapesos-45514228b/")[linkedin.com/in/gean-mapesos-45514228b]
+  Metro Manila, PH | #link("mailto:mapesosgean@gmail.com")[mapesosgean\@gmail.com] | #link("https://geanmapesos.dev")[geanmapesos.dev] \
+  #link("https://github.com/gemapesos")[github.com/gemapesos] | #link("https://www.linkedin.com/in/gean-mapesos-45514228b/")[linkedin.com/in/gean-mapesos-45514228b]
 ]
 
 #v(0.6em)
-Computer Science student and automation builder making practical tools that save people time. Open to software engineering and automation internships (remote or hybrid).
+Computer Science student and automation builder making practical tools that save people time. Open to software engineering and automation internships—remote, or hybrid/on-site in Manila, San Mateo (Rizal), and Angat (Bulacan).
 
 #section("Education")
 #entry(
@@ -51,9 +51,15 @@ Computer Science student and automation builder making practical tools that save
   sub: "Account Maintenance Specialist | Part-time, Remote",
 )
 - Maintain client ecommerce accounts remotely alongside full-time Computer Science coursework.
-- Identified repetitive browser workflows and built internal JavaScript web automation tools to streamline daily tasks for the team.
+- Spotted repetitive data-entry bottlenecks and built internal JavaScript bookmarklets that scrape page data, organize it into tables, and copy it to the clipboard—saving each teammate hours of manual work daily.
 
 #section("Projects")
+#entry(
+  [Web Automation Bookmarklets | #text(weight: "regular")[Solutions4Ecommerce (Internal)]],
+  "2023–Present",
+)
+- Built internal JavaScript bookmarklets for DOM data extraction, tabular formatting, and one-click clipboard export to speed up daily ecommerce account-maintenance workflows across the team.
+#v(0.3em)
 #entry(
   [Hometown Brew | #text(weight: "regular")[#link("https://hometownbrew.cafe")[hometownbrew.cafe]]],
   "2026",
@@ -75,6 +81,6 @@ Computer Science student and automation builder making practical tools that save
 
 #section("Skills")
 #text(weight: "medium")[Languages:] JavaScript, Python \
-#text(weight: "medium")[Web:] HTML/CSS \
+#text(weight: "medium")[Web:] HTML/CSS, DOM Scraping \
 #text(weight: "medium")[Tools:] Git, GitHub, Vercel \
-#text(weight: "medium")[Exploring:] n8n, AI workflows & prompting
+#text(weight: "medium")[Exploring:] n8n, Bookmarklets, AI-assisted development & workflows

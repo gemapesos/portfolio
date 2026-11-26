@@ -30,15 +30,17 @@ export const about = {
     lead: "Automation builder",
     rest: "making practical tools that save people time.",
   },
-  bio: [
-    "I'm studying Computer Science with a specialization in Software Engineering at FEU Institute of Technology. Alongside my coursework, I've worked part-time and remotely at Solutions4Ecommerce (S4E) since 2023, where I spot repetitive browser workflows and build internal JavaScript automation tools for the team.",
-  ],
   closing: {
     before:
       "I work with JavaScript and Python, and I'm currently expanding into workflow automation with n8n and AI-assisted tooling. I'm open to ",
     highlight: "software engineering and automation",
-    after: " internships (remote or hybrid).",
+    after:
+      " internships—remote, or hybrid/on-site in Manila, San Mateo (Rizal), and Angat (Bulacan).",
   },
+};
+
+export const connect = {
+  note: "Looking for an intern who turns repetitive browser work into fast, practical tools? Feel free to reach out.",
 };
 
 type Job = {
@@ -57,8 +59,8 @@ export const experience: Job[] = [
     period: "Mar 2023–Present",
     arrangement: "Part-time · Remote",
     highlights: [
-      "Maintain client ecommerce accounts remotely alongside full-time Computer Science coursework.",
-      "Identified repetitive browser workflows and built internal JavaScript web automation tools to streamline daily team tasks.",
+      "Maintain client ecommerce accounts alongside full-time Computer Science coursework.",
+      "Spotted repetitive data-entry bottlenecks and built internal bookmarklets used across the team—saving each teammate hours of manual work daily.",
     ],
     logo: s4eLogo,
   },
@@ -75,11 +77,11 @@ type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Web Automation Tools",
+    title: "Web Automation Bookmarklets",
     meta: "Internal · S4E",
     description:
-      "Internal browser scripts built to automate repetitive ecommerce account-maintenance workflows for my remote team at Solutions4Ecommerce, cutting down routine manual steps.",
-    tags: ["JavaScript", "Browser Automation"],
+      "One-click browser tools that extract ecommerce page data from the DOM and format it into structured, clipboard-ready tables for daily account-maintenance workflows.",
+    tags: ["JavaScript", "DOM Scraping", "Bookmarklets"],
   },
   {
     title: "Hometown Brew",
@@ -97,9 +99,12 @@ type SkillGroup = {
 
 export const skills: SkillGroup[] = [
   { label: "Languages", items: ["JavaScript", "Python"] },
-  { label: "Web", items: ["HTML", "CSS"] },
+  { label: "Web", items: ["HTML", "CSS", "DOM Scraping"] },
   { label: "Tools", items: ["Git", "GitHub", "Vercel"] },
-  { label: "Exploring", items: ["n8n", "AI workflows & prompting"] },
+  {
+    label: "Exploring",
+    items: ["n8n", "Bookmarklets", "AI-assisted development & workflows"],
+  },
 ];
 
 type School = {
@@ -118,7 +123,7 @@ export const education: School[] = [
   },
 ];
 
-type Certification = {
+export type Certification = {
   name: string;
   issuer: string;
   issued: string;
@@ -156,36 +161,5 @@ export const certifications: Certification[] = [
     credentialId: "JdCD-4wb2",
     verifyUrl: "https://verify.certiport.com",
     image: pythonCertificate,
-  },
-];
-
-type ContactLink = {
-  label: string;
-  handle: string;
-  href: string;
-  icon: "github" | "linkedin" | "mail" | "resume";
-  copyValue?: string;
-};
-
-export const links: ContactLink[] = [
-  { label: "GitHub", handle: "@gemapesos", href: site.github, icon: "github" },
-  {
-    label: "LinkedIn",
-    handle: "Gean Mapesos",
-    href: site.linkedin,
-    icon: "linkedin",
-  },
-  {
-    label: "Email",
-    handle: site.email,
-    href: `mailto:${site.email}`,
-    icon: "mail",
-    copyValue: site.email,
-  },
-  {
-    label: "Resume",
-    handle: "Download PDF",
-    href: site.resume,
-    icon: "resume",
   },
 ];

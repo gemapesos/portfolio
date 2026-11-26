@@ -1,33 +1,20 @@
-import { CertificatePreview } from "@/components/certificate-preview";
+import { CertificateCard } from "@/components/certificate-preview";
 import { CopyButton } from "@/components/copy-button";
 import { Entry } from "@/components/entry";
-import {
-  ArrowRightIcon,
-  FileTextIcon,
-  GithubIcon,
-  LinkedinIcon,
-  MailIcon,
-} from "@/components/icons";
+import { ArrowRightIcon, FileTextIcon, MailIcon } from "@/components/icons";
 import { ScrollRow } from "@/components/scroll-row";
 import { Section, enter, grid } from "@/components/section";
 import { TextLink } from "@/components/text-link";
 import {
   about,
   certifications,
+  connect,
   education,
   experience,
-  links,
   projects,
   site,
   skills,
 } from "./data";
-
-const linkIcons = {
-  github: GithubIcon,
-  linkedin: LinkedinIcon,
-  mail: MailIcon,
-  resume: FileTextIcon,
-};
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -67,30 +54,37 @@ export default function Home() {
             className="animate-enter motion-reduce:animate-none lg:col-start-2"
             style={enter(1)}
           >
-            <p className="text-muted">
-              <span className="font-medium text-foreground">
-                <span aria-hidden="true">&gt;_ </span>
-                {about.tagline.lead}
-              </span>{" "}
-              {about.tagline.rest}
-            </p>
-            {about.bio.map((paragraph) => (
-              <p key={paragraph} className="mt-4 text-muted">
-                {paragraph}
+            <div className="leading-relaxed">
+              <p className="text-muted">
+                <span className="font-medium text-foreground">
+                  <span aria-hidden="true">&gt;_ </span>
+                  {about.tagline.lead}
+                </span>{" "}
+                {about.tagline.rest}
               </p>
-            ))}
-            <p className="mt-4 text-muted">
-              {about.closing.before}
-              <mark className="bg-foreground px-1 py-px text-background selection:bg-background selection:text-foreground">
-                {about.closing.highlight}
-              </mark>
-              {about.closing.after}
-            </p>
+              <p className="mt-4 text-muted">
+                {about.closing.before}
+                <mark className="rounded-xs bg-foreground/[0.08] px-1.5 py-0.5 font-medium text-foreground dark:bg-foreground/[0.14]">
+                  {about.closing.highlight}
+                </mark>
+                {about.closing.after}
+              </p>
+            </div>
             <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2">
+              <span className="inline-flex items-center gap-1">
+                <a
+                  href={`mailto:${site.email}`}
+                  className="group inline-flex items-center gap-1.5 font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+                >
+                  Get in touch
+                  <ArrowRightIcon className="size-3 transition-transform duration-200 ease-out group-hover:translate-x-0.5" />
+                </a>
+                <CopyButton value={site.email} label="Copy email address" />
+              </span>
               <TextLink
                 href={site.resume}
                 newTab
-                className="font-medium hover:text-muted"
+                className="font-medium text-foreground underline decoration-border underline-offset-4 hover:decoration-foreground"
               >
                 Resume
               </TextLink>
@@ -106,16 +100,6 @@ export default function Home() {
               >
                 LinkedIn
               </TextLink>
-              <span className="inline-flex items-center gap-1">
-                <a
-                  href={`mailto:${site.email}`}
-                  className="group inline-flex items-center gap-1.5 text-muted transition-colors hover:text-foreground"
-                >
-                  Get in touch
-                  <ArrowRightIcon className="size-3 transition-transform duration-200 ease-out group-hover:translate-x-0.5" />
-                </a>
-                <CopyButton value={site.email} label="Copy email address" />
-              </span>
             </div>
           </div>
         </div>
@@ -195,91 +179,41 @@ export default function Home() {
         <Section id="certifications" title="Certifications" step={6}>
           <ScrollRow label="Certifications">
             {certifications.map((cert) => (
-              <Entry
-                key={cert.name}
-                title={cert.name}
-                href={cert.verifyUrl}
-                subtitle={cert.issuer}
-                meta={cert.issued}
-                preview={
-                  cert.image ? (
-                    <CertificatePreview
-                      image={cert.image}
-                      title={cert.name}
-                      verifyUrl={cert.verifyUrl}
-                    />
-                  ) : undefined
-                }
-                details={
-                  cert.credentialId || cert.expires || cert.verifyUrl ? (
-                    <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-0.5">
-                      {cert.credentialId ? (
-                        <>
-                          <dt>Credential ID</dt>
-                          <dd className="flex items-center gap-1 text-foreground">
-                            {cert.credentialId}
-                            <CopyButton
-                              value={cert.credentialId}
-                              label="Copy credential ID"
-                            />
-                          </dd>
-                        </>
-                      ) : null}
-                      {cert.expires ? (
-                        <>
-                          <dt>Expires</dt>
-                          <dd className="text-foreground tabular-nums">
-                            {cert.expires}
-                          </dd>
-                        </>
-                      ) : null}
-                      {cert.verifyUrl ? (
-                        <>
-                          <dt>Verify at</dt>
-                          <dd>
-                            <TextLink
-                              href={cert.verifyUrl}
-                              className="text-foreground hover:text-muted"
-                            >
-                              {new URL(cert.verifyUrl).hostname}
-                            </TextLink>
-                          </dd>
-                        </>
-                      ) : null}
-                    </dl>
-                  ) : undefined
-                }
-              >
-                {cert.note}
-              </Entry>
+              <CertificateCard key={cert.name} cert={cert} />
             ))}
           </ScrollRow>
         </Section>
 
         <Section id="connect" title="Connect" step={7}>
-          <ul className="space-y-3">
-            {links.map((link) => {
-              const Icon = linkIcons[link.icon];
-              return (
-                <li key={link.label} className="flex items-center gap-2">
-                  <Icon
-                    className="size-4 shrink-0 text-muted"
-                    aria-hidden="true"
-                  />
-                  <span className="sr-only">{link.label}: </span>
-                  <TextLink href={link.href} className="hover:text-muted">
-                    {link.handle}
-                  </TextLink>
-                  {link.copyValue ? (
-                    <CopyButton
-                      value={link.copyValue}
-                      label={`Copy ${link.label.toLowerCase()}`}
-                    />
-                  ) : null}
-                </li>
-              );
-            })}
-          </ul>
+          <p className="leading-relaxed text-muted">{connect.note}</p>
+          <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <span className="inline-flex items-center gap-1.5">
+              <MailIcon
+                className="size-4 shrink-0 text-muted"
+                aria-hidden="true"
+              />
+              <a
+                href={`mailto:${site.email}`}
+                className="font-medium underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+              >
+                {site.email}
+              </a>
+              <CopyButton value={site.email} label="Copy email address" />
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <FileTextIcon
+                className="size-4 shrink-0 text-muted"
+                aria-hidden="true"
+              />
+              <TextLink
+                href={site.resume}
+                newTab
+                className="font-medium underline decoration-border underline-offset-4 hover:decoration-foreground"
+              >
+                Download Resume
+              </TextLink>
+            </span>
+          </div>
         </Section>
 
         <script
@@ -297,9 +231,17 @@ export default function Home() {
         >
           <div className="flex flex-wrap items-center justify-between gap-4 lg:col-start-2">
             <span>{site.location}</span>
-            <TextLink href={site.repo} className="hover:text-foreground">
-              Source
-            </TextLink>
+            <div className="flex flex-wrap items-center gap-4">
+              <TextLink href={site.github} className="hover:text-foreground">
+                GitHub
+              </TextLink>
+              <TextLink href={site.linkedin} className="hover:text-foreground">
+                LinkedIn
+              </TextLink>
+              <TextLink href={site.repo} className="hover:text-foreground">
+                Source
+              </TextLink>
+            </div>
           </div>
         </div>
       </footer>

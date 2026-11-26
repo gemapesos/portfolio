@@ -30,7 +30,7 @@ export function CopyButton({ value, label }: { value: string; label: string }) {
         onClick={copy}
         aria-label={label}
         title={copied ? "Copied" : label}
-        className="-my-1 inline-grid size-7 cursor-pointer place-items-center rounded-xs text-muted transition-colors hover:text-foreground"
+        className="relative -my-1 inline-grid size-7 cursor-pointer place-items-center rounded-xs text-muted transition-colors after:absolute after:-inset-2 after:content-[''] hover:text-foreground"
       >
         {copied ? (
           <CheckIcon className="size-3" />

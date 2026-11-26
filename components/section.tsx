@@ -41,7 +41,10 @@ export function Section({
         className={`${grid} animate-enter py-12 motion-reduce:animate-none lg:py-16`}
         style={enter(step)}
       >
-        <h2 id={id} className="text-muted">
+        <h2
+          id={id}
+          className="text-xs font-medium uppercase tracking-[0.06em] text-muted lg:text-sm lg:font-normal lg:tracking-normal lg:normal-case"
+        >
           {title}
         </h2>
         <div className="min-w-0">{children}</div>

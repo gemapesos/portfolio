@@ -51,14 +51,14 @@ export function ScrollRow({
       {hasOverflow ? (
         <div
           aria-label={`${label} scroll controls`}
-          className="mt-4 hidden items-center gap-1.5 sm:flex"
+          className="mt-4 hidden items-center gap-2.5 sm:flex"
         >
           <button
             type="button"
             onClick={() => nudge(-1)}
             disabled={!canPrev}
             aria-label={`Scroll ${label.toLowerCase()} left`}
-            className="inline-grid size-7 cursor-pointer place-items-center rounded-xs border border-border text-muted transition-colors hover:text-foreground disabled:cursor-default disabled:opacity-35 disabled:hover:text-muted"
+            className="relative inline-grid size-7 cursor-pointer place-items-center rounded-xs border border-border text-muted transition-colors after:absolute after:-inset-1.5 after:content-[''] hover:text-foreground disabled:cursor-default disabled:opacity-35 disabled:hover:text-muted"
           >
             <ChevronLeftIcon className="size-3.5" />
           </button>
@@ -67,7 +67,7 @@ export function ScrollRow({
             onClick={() => nudge(1)}
             disabled={!canNext}
             aria-label={`Scroll ${label.toLowerCase()} right`}
-            className="inline-grid size-7 cursor-pointer place-items-center rounded-xs border border-border text-muted transition-colors hover:text-foreground disabled:cursor-default disabled:opacity-35 disabled:hover:text-muted"
+            className="relative inline-grid size-7 cursor-pointer place-items-center rounded-xs border border-border text-muted transition-colors after:absolute after:-inset-1.5 after:content-[''] hover:text-foreground disabled:cursor-default disabled:opacity-35 disabled:hover:text-muted"
           >
             <ChevronRightIcon className="size-3.5" />
           </button>

@@ -4,7 +4,7 @@ Personal site built with Next.js 16, Tailwind CSS 4 and Inter. The layout takes 
 
 ## Editing content
 
-All of the copy lives in [`lib/data.ts`](lib/data.ts): roles, bio, experience, projects, education, certifications and contact links. Add or change an entry there and the page updates; you don't need to touch any layout code.
+All of the copy lives in [`lib/data.ts`](lib/data.ts): roles, bio, experience, projects, education, certifications and contact links. It drives both the website and the Typst resume—edit there and run `npm run build:resume` to keep [`public/Gean-Mapesos-Resume.pdf`](public/Gean-Mapesos-Resume.pdf) in sync without touching layout code.
 
 ## Development
 
@@ -15,7 +15,7 @@ npm run dev
 
 Then open http://localhost:3000.
 
-To recompile the downloadable resume PDF from [`resume/resume.typ`](resume/resume.typ) (requires [Typst](https://typst.app)):
+To sync [`lib/data.ts`](lib/data.ts) and recompile the downloadable resume PDF from [`resume/resume.typ`](resume/resume.typ) (requires [Typst](https://typst.app)):
 
 ```bash
 npm run build:resume
@@ -35,7 +35,8 @@ npm run build:resume
 | `assets/` | Inter TTFs for the social card and Typst resume ([SIL Open Font License](assets/OFL.txt)) |
 | `assets/logos/` | Company and school logos shown beside Experience and Education |
 | `assets/certificates/` | Certificate images, shown in a sideways row with lightbox preview under Certifications |
-| `resume/` | Typst resume source (`resume.typ`) |
+| `scripts/sync-resume-data.mjs` | Syncs `lib/data.ts` into `resume/data.json` for Typst |
+| `resume/` | Typst resume template (`resume.typ`) |
 | `public/` | Static downloadable resume PDF (`Gean-Mapesos-Resume.pdf`) |
 
 ## Deploying

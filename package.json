@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "next typegen && tsc --noEmit",
-    "build:resume": "typst compile --font-path assets resume/resume.typ public/Gean-Mapesos-Resume.pdf"
+    "build:resume": "node scripts/sync-resume-data.mjs && typst compile --font-path assets resume/resume.typ public/Gean-Mapesos-Resume.pdf"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

@@ -42,3 +42,4 @@ next-env.d.ts
 
 # resume build output (served from /public)
 /resume/*.pdf
+/resume/data.json

@@ -60,6 +60,7 @@ export function ScrollRow({
       </ul>
       {hasOverflow ? (
         <div
+          role="group"
           aria-label={`${label} scroll controls`}
           className="mt-4 hidden items-center gap-2.5 sm:flex"
         >

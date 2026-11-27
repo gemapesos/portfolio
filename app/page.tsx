@@ -48,7 +48,7 @@ export default function Home() {
         </div>
       </header>
 
-      <main>
+      <main id="main">
         <div className={`${grid} pt-14 pb-12 lg:pt-20 lg:pb-16`}>
           <div
             className="animate-enter motion-reduce:animate-none lg:col-start-2"

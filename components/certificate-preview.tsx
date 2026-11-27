@@ -100,6 +100,7 @@ export function CertificateCard({ cert }: { cert: Certification }) {
                 src={cert.image}
                 alt={`${cert.name} certificate`}
                 sizes="(min-width: 1024px) 860px, 92vw"
+                placeholder="blur"
                 className="mx-auto max-h-[70dvh] w-auto rounded-xs object-contain outline -outline-offset-1 outline-black/10 dark:outline-white/15"
               />
             </div>

@@ -42,6 +42,10 @@
     color-scheme: light dark;
   }
 
+  html:has(dialog[open]) {
+    overflow: hidden;
+  }
+
   body {
     @apply bg-background font-sans text-sm/[1.375rem] text-foreground;
   }

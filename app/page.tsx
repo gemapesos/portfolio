@@ -64,7 +64,7 @@ export default function Home() {
               </p>
               <p className="mt-4 text-muted">
                 {about.closing.before}
-                <mark className="rounded-xs bg-foreground/[0.08] px-1.5 py-0.5 font-medium text-foreground dark:bg-foreground/[0.14]">
+                <mark className="bg-foreground px-1 py-px text-background selection:bg-background selection:text-foreground">
                   {about.closing.highlight}
                 </mark>
                 {about.closing.after}

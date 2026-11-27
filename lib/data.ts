@@ -40,7 +40,7 @@ export const about = {
 };
 
 export const connect = {
-  note: "Looking for an intern who turns repetitive browser work into fast, practical tools? Feel free to reach out.",
+  note: "Open to software engineering and automation internships, or interesting projects—feel free to reach out.",
 };
 
 type Job = {

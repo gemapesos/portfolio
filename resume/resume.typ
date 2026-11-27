@@ -1,5 +1,5 @@
 // Gean Mapesos: one-page resume. Build from the repo root with:
-// typst compile --font-path assets resume/resume.typ resume/Gean-Mapesos-Resume.pdf
+// npm run build:resume
 
 #set document(title: "Gean Mapesos - Resume", author: "Gean Mapesos")
 #set page(paper: "a4", margin: (x: 1.9cm, y: 1.3cm))

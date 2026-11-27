@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useRef } from "react";
-import type { Certification } from "@/app/data";
+import type { Certification } from "@/lib/data";
 import { CopyButton } from "./copy-button";
 import { CornerDownRightIcon, XIcon } from "./icons";
 import { TextLink } from "./text-link";

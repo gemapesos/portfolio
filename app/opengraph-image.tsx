@@ -1,12 +1,13 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
-import { about, site } from "./data";
+import { about, site } from "@/lib/data";
 
 export const alt = `${site.name}: ${about.roles.join(", ")}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
+// Satori (next/og) and Typst require static TTF/OTF files rather than next/font's WOFF2.
 const [regular, medium] = await Promise.all([
   readFile(join(process.cwd(), "assets/Inter-Regular.ttf")),
   readFile(join(process.cwd(), "assets/Inter-Medium.ttf")),

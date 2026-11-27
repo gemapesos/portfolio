@@ -14,7 +14,7 @@ import {
   projects,
   site,
   skills,
-} from "./data";
+} from "@/lib/data";
 
 const jsonLd = {
   "@context": "https://schema.org",
